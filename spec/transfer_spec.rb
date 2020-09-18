@@ -1,13 +1,12 @@
-require 'pry'
-describe 'Transfer' do
-
+require "pry"
+describe "Transfer" do
   let(:avi) { BankAccount.new("Avi") }
   let(:amanda) { BankAccount.new("Amanda") }
   let(:terrance) { BankAccount.new("Terrance") }
   let(:transfer) { Transfer.new(amanda, avi, 50) }
   let(:bad_transfer) { Transfer.new(amanda, avi, 4000) }
 
-  describe 'initialize' do
+  describe "initialize" do
     it "can initialize a Transfer" do
       expect(transfer).to be_a(Transfer)
     end
@@ -29,9 +28,9 @@ describe 'Transfer' do
     end
   end
 
-  describe '#valid?' do
+  describe "#valid?" do
     it "can check that both accounts are valid" do
-      expect(avi.valid?).to eq (true)
+      expect(avi.valid?).to eq(true)
       expect(amanda.valid?).to eq(true)
       expect(transfer.valid?).to eq(true)
     end
@@ -46,7 +45,7 @@ describe 'Transfer' do
     end
   end
 
-  describe '#execute_transaction' do
+  describe "#execute_transaction" do
     let(:avi) { BankAccount.new("Avi") }
     let(:amanda) { BankAccount.new("Amanda") }
     let(:transfer) { Transfer.new(amanda, avi, 50) }
@@ -80,7 +79,7 @@ describe 'Transfer' do
     end
   end
 
-  describe '#reverse_transfer' do
+  describe "#reverse_transfer" do
     it "can reverse a transfer between two accounts" do
       transfer.execute_transaction
       expect(amanda.balance).to eq(950)
