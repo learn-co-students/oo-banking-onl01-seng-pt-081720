@@ -3,14 +3,11 @@ require 'pry'
 class Transfer
   attr_accessor :status, :sender, :receiver, :amount
 
-  @@all = []
-
   def initialize(sender, receiver, amount)
     @sender = sender
     @receiver = receiver
     @amount = amount
     @status = "pending"
-    @@all << self
   end
 
   def valid?
